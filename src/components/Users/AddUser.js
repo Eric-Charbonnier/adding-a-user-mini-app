@@ -12,14 +12,14 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) { // if empty string
       setError({
         title: 'Invalid input',
         message: 'Please enter a valid name and age (non-empty values).',
       });
       return;
     }
-    if (+enteredAge < 1) {
+    if (+enteredAge < 1) { // avec le + on force la conversion en number
       setError({
         title: 'Invalid age',
         message: 'Please enter a valid age (> 0).',
