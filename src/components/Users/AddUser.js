@@ -41,7 +41,7 @@ const AddUser = (props) => {
   };
 
   const errorHandler = () => {
-    setError(null);
+    setError(null); // set to null afin d'avoir une valeur falthy pour ne pas afficher la condition dans le return ({error && (<ErrorModal) ....
   };
 
   return (
