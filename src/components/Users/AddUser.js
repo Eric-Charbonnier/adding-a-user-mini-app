@@ -26,7 +26,8 @@ const AddUser = (props) => {
       });
       return;
     }
-    props.onAddUser(enteredUsername, enteredAge);
+    console.log(enteredUsername, enteredAge);
+    props.onAddUser(enteredUsername, enteredAge); // lifting the state up in App 
     setEnteredUsername('');
     setEnteredAge('');
   };
