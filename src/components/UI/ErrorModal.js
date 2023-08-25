@@ -2,9 +2,9 @@ import React from "react";
 import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.css";
-import ReactDom from 'react-dom';
+import ReactDom from "react-dom";
 
-const Backdrop = (props) => {
+const Backdrop = (props) => { // onConfirm pour la gestion du click en dehors du modal pour le fermer
   return <div className={classes.backdrop} onClick={props.onConfirm} />;
 };
 
@@ -19,7 +19,8 @@ const ModalOverlay = (props) => {
       </div>
       <footer className={classes.actions}>
         <Button onClick={props.onConfirm}>Okay</Button>
-      </footer>Ï
+      </footer>
+      Ï
     </Card>
   );
 };
@@ -27,8 +28,16 @@ const ModalOverlay = (props) => {
 const ErrorModal = (props) => {
   return (
     <React.Fragment>
-      on ReactDom we create a createPortal Methode wich takes 2 arguments (the react node (JSX: <Backdrop />) & pointeur vers le vrai dom)
-{ReactDom.createPortal(<Backdrop onConfirm={props.onConfirm} />, document.getElementById('backdrop-root'))}
+      {/* on ReactDom we create a createPortal Methode wich takes 2 arguments (the
+      react node (JSX: <Backdrop />) & pointeur vers le vrai dom) */}
+      {ReactDom.createPortal(
+        <Backdrop onConfirm={props.onConfirm} />,
+        document.getElementById("backdrop-root")
+      )}
+      {ReactDom.createPortal(
+        <ModalOverlay title={props.title} message={props.message} onConfirm={props.onConfirm} />,
+        document.getElementById("overlay-root")
+      )}
     </React.Fragment>
   );
 };
