@@ -15,8 +15,8 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    console.log(nameInputRef);
-    console.log(nameInputRef.current.value);
+    // console.log(nameInputRef);
+    // console.log(nameInputRef.current.value);
 
     const enteredName = nameInputRef.current.value;
     const enteredUserAge  = ageInputRef.current.value;
@@ -37,7 +37,7 @@ const AddUser = (props) => {
     // console.log(enteredUsername, enteredAge);
     // props.onAddUser(enteredUsername, enteredAge); // lifting the state up in App 
     props.onAddUser(enteredName, enteredUserAge);
-    // avec l'utilisation des refs on a donc plus besoin de reseter les states ci-dessous car on utilise plus les states pour recup nos values. donc on va retirer les states egalement en haut et on a plus besoin des deux handlers ci-dessdous egalement, idem pour la value property dans les inputs
+    // avec l'utilisation des refs on a donc plus besoin de reseter les states ci-dessous car on utilise plus les states pour recup nos values. donc on va retirer les states egalement en haut et on a plus besoin des deux handlers ci-dessdous egalement, idem pour la value property dans les inputs. Les Refs sont utiles uniquement pour LIRE une donnée pas pour la changer comme on le fait avec l'utilisation des States.
     // setEnteredUsername('');
     // setEnteredAge('');
     nameInputRef.current.value = '';
